@@ -1,13 +1,63 @@
-import React from 'react';
-import { Router, Route } from 'dva/router';
-import IndexPage from './routes/IndexPage';
+import React from 'react'
+/*
+import PropTypes from 'prop-types'
+*/
+import { Router } from 'dva/router'
+import App from './routes/app'
 
-function RouterConfig({ history }) {
-  return (
-    <Router history={history}>
-      <Route path="/" component={IndexPage} />
-    </Router>
-  );
+const registerModel = (app, model) => {
+  if (!(app._models.filter(m => m.namespace === model.namespace).length === 1)) {
+    app.model(model)
+  }
 }
 
-export default RouterConfig;
+const Routers = function ({ history, app }) {
+  const routes = [
+    {
+      path: '/',
+      component: App,
+      /*indexRoute: {onEnter: (nextState, replace) => replace('/remoteCoop/workOverview')},
+      childRoutes: [
+        {
+          path: 'remoteCoop',
+          indexRoute: {onEnter: (nextState, replace) => replace('/remoteCoop/workOverview')},
+          childRoutes: [
+            {
+              path: 'workOverview',
+              //name: 'workOverview',
+              getComponent (nextState, cb) {
+                require.ensure([], require => {
+                  registerModel(app, require('./models/remoteCoop/workOverview'));
+                  cb(null, require('./routes/remoteCoop/workOverview'))
+                }, 'remoteCoop_workOverview')
+              },
+              onEnter: function (nextState, replace, next) {
+                /!*checkAuth(nextState, replace, next, function () {
+                  //callback function,may be don't need.
+                });*!/
+              }
+            }
+          ]
+        },{
+          path: '*',
+          getComponent (nextState, cb) {
+            /!*require.ensure([], (require) => {
+              cb(null, require('routes/error/'))
+            }, 'error')*!/
+          },
+        },
+      ],*/
+    },
+  ]
+
+  return <Router history={history} routes={routes} />
+}
+
+/*
+Routers.propTypes = {
+  history: PropTypes.object,
+  app: PropTypes.object,
+}
+*/
+
+export default Routers
