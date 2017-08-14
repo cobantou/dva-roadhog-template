@@ -17,7 +17,7 @@ function workOverview() {
                   marginBottom: '20px'
                 }}
           >
-            <CardTitle>今日QA概况</CardTitle>
+            <CardTitle>工作概况</CardTitle>
             几个图块
           </Card>
         </Col>
@@ -31,7 +31,7 @@ function workOverview() {
                   marginBottom: '20px'
                 }}
           >
-            <CardTitle>本周QA概况</CardTitle>
+            <CardTitle>本院协作</CardTitle>
             echart的表格
           </Card>
         </Col>

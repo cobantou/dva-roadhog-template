@@ -9,10 +9,11 @@ export let menu =  [
   },{
     key: "myApply",
     name: "我的申请",
-    route:"/remoteCoop/apply"
+    route:"/remoteCoop/list/myApply"
   },{
     key: "myAccept",
     name: "我的受理",
+    route:"/remoteCoop/list/myAccept"
   },{
     key: "rmtCoop",
     name: "远程协作",
@@ -20,15 +21,19 @@ export let menu =  [
       {
         key: "attribute",
         name: "待分配",
+        route:"/remoteCoop/list/attribute"
       },{
         key: "process",
         name: "处理中",
+        route:"/remoteCoop/list/process"
       },{
         key: "finish",
         name: "已完成",
+        route:"/remoteCoop/list/finish"
       },{
         key: "all",
         name: "全部",
+        route:"/remoteCoop/list/all"
       },
     ]
   },

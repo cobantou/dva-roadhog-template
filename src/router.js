@@ -31,7 +31,16 @@ const Routers = function ({ history, app }) {
                   cb(null, require('./routes/remoteCoop/workOverview'))
                 }, 'remoteCoop_workOverview')
               }
-            }
+            },{
+              path: 'list/:id',
+              //name: 'workOverview',
+              getComponent (nextState, cb) {
+                require.ensure([], require => {
+                  registerModel(app, require('./models/remoteCoop/list'));
+                  cb(null, require('./routes/remoteCoop/list'))
+                }, 'remoteCoop_list')
+              }
+            },
           ]
         },{
           path: '*',
